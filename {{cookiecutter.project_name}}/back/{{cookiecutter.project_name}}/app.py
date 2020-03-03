@@ -23,7 +23,7 @@ def create_app(api=True):
     {%- if cookiecutter.facebook_login == 'y' %}
     create_facebook_auth(app)
     {%- endif %}
-    {% - if cookiecutter.storage == 'y' %}
+    {%- if cookiecutter.storage == 'y' %}
     create_storage_gw(app)
     {%- endif %}
 
