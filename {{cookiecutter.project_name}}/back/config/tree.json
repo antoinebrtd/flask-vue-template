@@ -1,0 +1,847 @@
+{
+  "back": [
+    {
+      "id": 49,
+      "name": "config",
+      "children": [
+        {
+          "id": 1,
+          "name": "config.dev.json",
+          "file": "json",
+          "description": "This file contains the configuration to use in development mode."
+        },
+        {
+          "id": 2,
+          "name": "config.json",
+          "file": "json",
+          "description": "This file contains the configuration to use when the app is launched."
+        },
+        {%- if cookiecutter.facebook_login == 'y' %}
+        {
+          "id": 3,
+          "name": "facebook.json",
+          "file": "json",
+          "description": "This file contains the configuration for Facebook authentication."
+        },
+        {%- endif %}
+        {%- if cookiecutter.google_login == 'y' %}
+        {
+          "id": 4,
+          "name": "google.json",
+          "file": "json",
+          "description": "This file contains the configuration for Google authentication."
+        },
+        {%- endif %}
+        {
+          "id": 5,
+          "name": "tree.json",
+          "file": "json",
+          "description": "This file contains your app's tree."
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "name": "{{cookiecutter.project_name}}",
+      "children": [
+        {
+          "id": 51,
+          "name": "api",
+          "children": [
+            {
+              "name": "social",
+              "children": [
+                {
+                  "id": 6,
+                  "name": "__init__.py",
+                  "file": "py",
+                  "description": "This file registers the users and /me routes."
+                },
+                {
+                  "id": 7,
+                  "name": "me.py",
+                  "file": "py",
+                  "description": "This file defines the function for the /me route."
+                },
+                {
+                  "id": 8,
+                  "name": "users.py",
+                  "file": "py",
+                  "description": "This file defines the classes for the users routes."
+                }
+              ]
+            },
+            {
+              "id": 52,
+              "name": "utils",
+              "children": [
+                {
+                  "id": 9,
+                  "name": "__init__.py",
+                  "file": "py",
+                  "description": "This file registers the tree route."
+                },
+                {
+                  "id": 10,
+                  "name": "tree.py",
+                  "file": "py",
+                  "description": "This file defines the class for the tree route."
+                }
+              ]
+            },
+            {
+              "id": 11,
+              "name": "__init__.py",
+              "file": "py",
+              "description": "This file builds the api."
+            },
+            {
+              "id": 12,
+              "name": "errors.py",
+              "file": "py",
+              "description": "This file registers custom exceptions."
+            },
+            {
+              "id": 13,
+              "name": "jobs.py",
+              "file": "py",
+              "description": "This file builds and registers the job route blueprint."
+            }
+          ]
+        },
+        {
+          "id": 53,
+          "name": "auth",
+          "children": [
+            {
+              "id": 14,
+              "name": "__init__.py",
+              "file": "py",
+              "description": "This file exports the functions from authentication modules."
+            },
+            {%- if cookiecutter.email_login == 'y' %}
+            {
+              "id": 15,
+              "name": "email_login.py",
+              "file": "py",
+              "description": "This file registers the routes of the email authentication."
+            },
+            {%- endif %}
+            {%- if cookiecutter.facebook_login == 'y' %}
+            {
+              "id": 16,
+              "name": "facebook_login.py",
+              "file": "py",
+              "description": "This file registers the routes of the Facebook authentication."
+            },
+            {%- endif %}
+            {%- if cookiecutter.google_login == 'y' %}
+            {
+              "id": 17,
+              "name": "google_login.py",
+              "file": "py",
+              "description": "This file registers the routes of the Google authentication."
+            },
+            {%- endif %}
+            {
+              "id": 18,
+              "name": "utils.py",
+              "file": "py",
+              "description": "This file defines a wrapper that checks if the user is authenticated when making a request on a given route."
+            }
+          ]
+        },
+        {
+          "id": 54,
+          "name": "core",
+          "children": [
+            {
+              "id": 55,
+              "name": "utils",
+              "children": [
+                {
+                  "id": 19,
+                  "name": "__init__.py",
+                  "file": "py",
+                  "description": "This file defines a useful custom date time JSON encoder."
+                }
+              ]
+            },
+            {
+              "id": 20,
+              "name": "__init__.py",
+              "file": "py",
+              "description": "This file exports all core objects."
+            },
+            {
+              "id": 21,
+              "name": "cache.py",
+              "file": "py",
+              "description": "This file configures the Redis cache and the rq queue for jobs to be executed by workers."
+            },
+            {
+              "id": 22,
+              "name": "config.py",
+              "file": "py",
+              "description": "This file configures the logger and exports the configuration files."
+            },
+            {
+              "id": 23,
+              "name": "database.py",
+              "file": "py",
+              "description": "This file configures the PostgreSQL database."
+            },
+            {
+              "id": 24,
+              "name": "elasticsearh.py",
+              "file": "py",
+              "description": "This file configures the Elasticsearch database."
+            },
+            {
+              "id": 25,
+              "name": "mail.py",
+              "file": "py",
+              "description": "This file contains the module that sends emails."
+            },
+            {
+              "id": 26,
+              "name": "storage.py",
+              "file": "py",
+              "description": "This file configures the storage."
+            }
+          ]
+        },
+        {
+          "id": 56,
+          "name": "exceptions",
+          "children": [
+            {
+              "id": 27,
+              "name": "__init__.py",
+              "file": "py",
+              "description": "This file instantiate a global custom exception from which other exceptions derive, and exports all the exceptions."
+            },
+            {
+              "id": 28,
+              "name": "passwords.py",
+              "file": "py",
+              "description": "This file contains custom exceptions about passwords."
+            },
+            {
+              "id": 29,
+              "name": "users.py",
+              "file": "py",
+              "description": "This file contains custom exceptions about users."
+            }
+          ]
+        },
+        {
+          "id": 57,
+          "name": "managers",
+          "children": [
+            {
+              "name": "social",
+              "children": [
+                {
+                  "id": 30,
+                  "name": "__init__.py",
+                  "file": "py",
+                  "description": "This file exports all functions from social folder."
+                },
+                {
+                  "id": 31,
+                  "name": "users.py",
+                  "file": "py",
+                  "description": "This file contains the functions that interact with the models in the folder social."
+                }
+              ]
+            },
+            {
+              "id": 32,
+              "name": "__init__.py",
+              "file": "py",
+              "description": "This file exports all functions from managers folder."
+            }
+          ]
+        },
+        {
+          "id": 58,
+          "name": "models",
+          "children": [
+            {
+              "name": "social",
+              "children": [
+                {
+                  "id": 33,
+                  "name": "__init__.py",
+                  "file": "py",
+                  "description": "This file exports all models from social folder."
+                },
+                {%- if cookiecutter.facebook_login == 'y' %}
+                {
+                  "id": 34,
+                  "name": "fbcredentials.py",
+                  "file": "py",
+                  "description": "This file defines the model Facebook credentials, where users' Facebook credentials are stored."
+                },
+                {%- endif %}
+                {%- if cookiecutter.google_login == 'y' %}
+                {
+                  "id": 35,
+                  "name": "gcredentials.py",
+                  "file": "py",
+                  "description": "This file defines the model Google credentials, where users' Google credentials are stored."
+                },
+                {%- endif %}
+                {
+                  "id": 36,
+                  "name": "users.py",
+                  "file": "py",
+                  "description": "This file defines the model Users, where all basic information about users is stored."
+                }
+              ]
+            },
+            {
+              "id": 37,
+              "name": "__init__.py",
+              "file": "py",
+              "description": "This file exports all models."
+            }
+          ]
+        },
+        {
+          "id": 59,
+          "name": "storage",
+          "children": [
+            {
+              "id": 38,
+              "name": "__init__.py",
+              "file": "py",
+              "description": "This file builds and registers the storage route blueprint."
+            }
+          ]
+        },
+        {
+          "id": 39,
+          "name": "__init__.py",
+          "file": "py",
+          "description": "This file exports the function that builds the app."
+        },
+        {
+          "id": 40,
+          "name": "app.py",
+          "file": "py",
+          "description": "This file builds the backend app."
+        },
+        {
+          "id": 41,
+          "name": "config.py",
+          "file": "py",
+          "description": "This file specifies the Flask configuration to use and sets some JWT auth parameters."
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "name": "templates",
+      "children": [
+        {
+          "id": 42,
+          "name": "confirm_email",
+          "file": "html",
+          "description": "This file contains the html to display in the confirmation email that is sent to the user."
+        },
+        {
+          "id": 43,
+          "name": "reset_password",
+          "file": "html",
+          "description": "This file contains the html to display in the reset password email that is sent to the user."
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "name": ".gitignore",
+      "file": "txt",
+      "description": "This file specifies which files or folders are to ignore at the root of the back end folder."
+    },
+    {
+      "id": 45,
+      "name": "Dockerfile",
+      "file": "docker",
+      "description": "This file contains all the commands a user could call on the command line to assemble an image of a docker container."
+    },
+    {
+      "id": 46,
+      "name": "requirements.txt",
+      "file": "env",
+      "description": "This file specifies all the packages and dependencies the back end needs to run correctly."
+    },
+    {
+      "id": 47,
+      "name": "run.py",
+      "file": "py",
+      "description": "This file is the point of entry of the back end app. When called, it runs the app."
+    },
+    {
+      "id": 48,
+      "name": "worker.py",
+      "file": "py",
+      "description": "This file is responsible for registering the worker."
+    }
+  ],
+  "front": [
+    {
+      "id": 61,
+      "name": "public",
+      "children": [
+        {
+          "id": 70,
+          "name": "favicon.ico",
+          "file": "ico",
+          "description": "This file contains the icon to display on the browser's tabs."
+        },
+        {
+          "id": 71,
+          "name": "index.html",
+          "file": "html",
+          "description": "This file is the point of entry of the front end app. This is where fonts and icons libraries are imported."
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "name": "src",
+      "children": [
+        {
+          "id": 72,
+          "name": "assets",
+          "children": [
+            {
+              "id": 88,
+              "name": "logos",
+              "children": [
+                {
+                  "id": 79,
+                  "name": "elastic.png",
+                  "file": "png",
+                  "description": "Elasticsearch logo."
+                },
+                {
+                  "id": 80,
+                  "name": "email.png",
+                  "file": "png",
+                  "description": "An email logo."
+                },
+                {
+                  "id": 81,
+                  "name": "facebook.png",
+                  "file": "png",
+                  "description": "White Facebook logo."
+                },
+                {
+                  "id": 82,
+                  "name": "facebook_blue.png",
+                  "file": "png",
+                  "description": "Blue Facebook logo."
+                },
+                {
+                  "id": 83,
+                  "name": "google.png",
+                  "file": "png",
+                  "description": "Google logo."
+                },
+                {
+                  "id": 84,
+                  "name": "minio.png",
+                  "file": "png",
+                  "description": "Minio logo."
+                },
+                {
+                  "id": 85,
+                  "name": "postgre.png",
+                  "file": "png",
+                  "description": "PostgreSQL logo."
+                },
+                {
+                  "id": 86,
+                  "name": "redis.png",
+                  "file": "png",
+                  "description": "Redis logo."
+                },
+                {
+                  "id": 87,
+                  "name": "vue.png",
+                  "file": "png",
+                  "description": "VueJs logo."
+                }
+              ]
+            },
+            {
+              "id": 89,
+              "name": "banner.jpg",
+              "file": "jpg",
+              "description": "A colorful banner."
+            },
+            {
+              "id": 90,
+              "name": "banner_dark.jpg",
+              "file": "jpg",
+              "description": "A dark banner."
+            },
+            {
+              "id": 91,
+              "name": "grey_background.jpeg",
+              "file": "jpg",
+              "description": "A nice platinum grey background."
+            }
+          ]
+        },
+        {
+          "id": 73,
+          "name": "components",
+          "children": [
+            {
+              "id": 129,
+              "name": "account",
+              "children": [
+                {
+                  "id": 130,
+                  "name": "ModifyAccount.vue",
+                  "file": "vue",
+                  "description": "The component to modify your account."
+                },
+                {
+                  "id": 131,
+                  "name": "ViewAccount.vue",
+                  "file": "vue",
+                  "description": "The component to view an other user's account."
+                }
+              ]
+            },
+            {
+              "id": 92,
+              "name": "auth",
+              "children": [
+                {%- if cookiecutter.email_login == 'y' %}
+                {
+                  "id": 95,
+                  "name": "EmailLogin.vue",
+                  "file": "vue",
+                  "condition": "{{cookiecutter.email_login}}",
+                  "description": "This file contains the email login component of the login page."
+                }{%- if cookiecutter.facebook_login == 'y' or cookiecutter.google_login == 'y' %},{%- endif %}
+                {%- endif %}
+                {%- if cookiecutter.facebook_login == 'y' %}
+                {
+                  "id": 96,
+                  "name": "FacebookLogin.vue",
+                  "file": "vue",
+                  "condition": "{{cookiecutter.facebook_login}}",
+                  "description": "This file contains the Facebook login component of the login page."
+                }{%- if cookiecutter.google_login == 'y' %},{%- endif %}
+                {%- endif %}
+                {%- if cookiecutter.google_login == 'y' %}
+                {
+                  "id": 97,
+                  "name": "GoogleLogin.vue",
+                  "file": "vue",
+                  "condition": "{{cookiecutter.google_login}}",
+                  "description": "This file contains the Google login component of the login page."
+                }
+                {%- endif %}
+              ]
+            },
+            {
+              "id": 93,
+              "name": "home",
+              "children": [
+                {
+                  "id": 98,
+                  "name": "AuthType.vue",
+                  "file": "vue",
+                  "description": "The component describing the auth types on home page."
+                },
+                {
+                  "id": 99,
+                  "name": "BackendStack.vue",
+                  "file": "vue",
+                  "description": "The component describing the different backend stacks on home page."
+                },
+                {
+                  "id": 100,
+                  "name": "MainStack.vue",
+                  "file": "vue",
+                  "description": "The component describing the main stacks on home page."
+                },
+                {
+                  "id": 101,
+                  "name": "WelcomeScreen.vue",
+                  "file": "vue",
+                  "description": "A nice welcome animation on home page."
+                }
+              ]
+            },
+            {
+              "id": 94,
+              "name": "util",
+              "children": [
+                {
+                  "id": 102,
+                  "name": "Footer.vue",
+                  "file": "vue",
+                  "description": "A reusable adaptive footer component."
+                },
+                {
+                  "id": 103,
+                  "name": "Header.vue",
+                  "file": "vue",
+                  "description": "A reusable animated header component."
+                },
+                {
+                  "id": 104,
+                  "name": "Jobs.vue",
+                  "file": "vue",
+                  "description": "A job progress component."
+                },
+                {
+                  "id": 105,
+                  "name": "ProfileMenu.vue",
+                  "file": "vue",
+                  "description": "A simple profile menu component."
+                },
+                {
+                  "id": 128,
+                  "name": "UploadButton.vue",
+                  "file": "vue",
+                  "description": "A super nice and customizable upload button."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 74,
+          "name": "modules",
+          "children": [
+            {
+              "id": 106,
+              "name": "auth",
+              "children": [
+                {%- if cookiecutter.email_login == 'y' %}
+                {
+                  "id": 110,
+                  "name": "email.js",
+                  "file": "js",
+                  "condition": "{{cookiecutter.email_login}}",
+                  "description": "This file regroups the front end functions for email auth."
+                },
+                {%- endif %}
+                {%- if cookiecutter.facebook_login == 'y' %}
+                {
+                  "id": 111,
+                  "name": "facebook.js",
+                  "file": "js",
+                  "condition": "{{cookiecutter.facebook_login}}",
+                  "description": "This file regroups the front end functions for Facebook auth."
+                },
+                {%- endif %}
+                {%- if cookiecutter.google_login == 'y' %}
+                {
+                  "id": 112,
+                  "name": "google.js",
+                  "file": "js",
+                  "condition": "{{cookiecutter.google_login}}",
+                  "description": "This file regroups the front end functions for Google auth."
+                },
+                {%- endif %}
+                {
+                  "id": 113,
+                  "name": "util.js",
+                  "file": "js",
+                  "description": "This file regroups the common front end functions for auth."
+                }
+              ]
+            },
+            {
+              "id": 107,
+              "name": "jobs",
+              "children": [
+                {
+                  "id": 114,
+                  "name": "index.js",
+                  "file": "js",
+                  "description": "This file regroups the front end functions for handling jobs."
+                }
+              ]
+            },
+            {
+              "id": 108,
+              "name": "notifications",
+              "children": [
+                {
+                  "id": 115,
+                  "name": "index.js",
+                  "file": "js",
+                  "description": "This file regroups the front end functions for handling notifications."
+                }
+              ]
+            },
+            {
+              "id": 109,
+              "name": "router",
+              "children": [
+                {
+                  "id": 116,
+                  "name": "index.js",
+                  "file": "js",
+                  "description": "This file registers the routes of the front end app."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 75,
+          "name": "pages",
+          "children": [
+            {
+              "id": 117,
+              "name": "auth",
+              "children": [
+                {%- if cookiecutter.facebook_login == 'y' or cookiecutter.google_login == 'y' %}
+                {
+                  "id": 123,
+                  "name": "callback",
+                  "children": [
+                    {%- if cookiecutter.facebook_login == 'y' %}
+                    {
+                      "id": 124,
+                      "name": "FacebookCallback.vue",
+                      "file": "vue",
+                      "condition": "{{cookiecutter.facebook_login}}",
+                      "description": "The page Facebook redirects to when login in with Facebook."
+                    }{%- if cookiecutter.google_login == 'y' %},{%- endif %}
+                    {%- endif %}
+                    {%- if cookiecutter.google_login == 'y' %}
+                    {
+                      "id": 125,
+                      "name": "GoogleCallback.vue",
+                      "file": "vue",
+                      "condition": "{{cookiecutter.google_login}}",
+                      "description": "The page Google redirects to when login in with Google."
+                    }
+                    {%- endif %}
+                  ]
+                },
+                {%- endif %}
+                {%- if cookiecutter.email_login == 'y' %}
+                {
+                  "id": 120,
+                  "name": "ForgotPassword.vue",
+                  "file": "vue",
+                  "condition": "{{cookiecutter.email_login}}",
+                  "description": "The forgot password page."
+                },
+                {%- endif %}
+                {
+                  "id": 121,
+                  "name": "Login.vue",
+                  "file": "vue",
+                  "description": "The login page."
+                },{%- if cookiecutter.email_login == 'y' %}, {%- endif %}
+                {%- if cookiecutter.email_login == 'y' %}
+                {
+                  "id": 122,
+                  "name": "ResetPassword.vue",
+                  "file": "vue",
+                  "condition": "{{cookiecutter.email_login}}",
+                  "description": "The reset password page."
+                }
+                {%- endif %}
+              ]
+            },
+            {
+              "id": 118,
+              "name": "About.vue",
+              "file": "vue",
+              "description": "The page you are on right now."
+            },
+            {
+              "id": 119,
+              "name": "Home.vue",
+              "file": "vue",
+              "description": "The home page."
+            },
+            {
+              "id": 127,
+              "name": "Account.vue",
+              "file": "vue",
+              "description": "Page where you can see and manage your account."
+            }
+          ]
+        },
+        {
+          "id": 76,
+          "name": "plugins",
+          "children": [
+            {
+              "id": 126,
+              "name": "vuetify.js",
+              "file": "js",
+              "description": "This files configures Vuetify and defines a theme for the app."
+            }
+          ]
+        },
+        {
+          "id": 77,
+          "name": "App.vue",
+          "file": "vue",
+          "description": "This file builds the front end app."
+        },
+        {
+          "id": 78,
+          "name": "main.js",
+          "file": "js",
+          "description": "This file instantiate the front end app, exports useful user data and defines an authentication error interceptor on the http requests to the back end."
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "name": ".env.development",
+      "file": "env",
+      "description": "This file specifies the environment variables to use in development mode."
+    },
+    {
+      "id": 64,
+      "name": ".gitignore",
+      "file": "txt",
+      "description": "This file specifies which files or folders are to ignore at the root of the front end folder."
+    },
+    {
+      "id": 65,
+      "name": "babel.config.js",
+      "file": "js",
+      "description": "This file specifies the babel config."
+    },
+    {
+      "id": 66,
+      "name": "package.json",
+      "file": "json",
+      "description": "This file specifies all the packages and dependencies the front end needs to run correctly."
+    },
+    {
+      "id": 67,
+      "name": "package-lock.json",
+      "file": "json",
+      "description": "This file describes the dependency tree that was generated from the package.json file."
+    },
+    {
+      "id": 68,
+      "name": "vue.config.js",
+      "file": "js",
+      "description": "This file specifies the vue configuration for the front end."
+    }
+  ]
+}

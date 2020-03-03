@@ -1,0 +1,90 @@
+{
+  {%- if cookiecutter.enable_https == 'y' %}
+  "back_root_url": "https://localhost:5000",
+  {%- endif %}
+  {%- if cookiecutter.enable_https != 'y' %}
+  "back_root_url": "http://localhost:5000",
+  {%- endif %}
+  {%- if cookiecutter.enable_https == 'y' %}
+  "front_root_url": "https://localhost:8080/#",
+  {%- endif %}
+  {%- if cookiecutter.enable_https != 'y' %}
+  "front_root_url": "http://localhost:8080/#",
+  {%- endif %}
+  "database": {
+    "host": "localhost",
+    "user": "{{cookiecutter.project_name}}",
+    "password": "{{cookiecutter.project_name}}"
+  },
+  {%- if cookiecutter.elasticsearch == 'y' %}
+  "aws": {
+    "access_key": "AKIAIOSFODNN7EXAMPLE",
+    "private_key": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    "endpoint": "http://localhost:9000/",
+    "elastic": "http://localhost:9200/"
+  },
+  {%- endif %}
+  "cache": {
+    "host": "localhost",
+    "url": "redis://localhost:6379/1"
+  },
+  {%- if cookiecutter.storage == 'y' %}
+  "storage": {
+    "access_key": "AKIAIOSFODNN7EXAMPLE",
+    "private_key": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    "endpoint": "http://localhost:9000/",
+    "bucket": "template-storage"
+  },
+  {%- endif %}
+  {%- if cookiecutter.google_login == 'y' or cookiecutter.facebook_login == 'y' %}
+  "oauth": {
+    {%- if cookiecutter.google_login == 'y' %}
+    "google": {
+      "google_config": "./config/google.json",
+      {%- if cookiecutter.enable_https == 'y' %}
+      "callback": "https://localhost:5000/auth/google/callback",
+      "front_callback": "https://localhost:8080/#/auth/google/callback"
+      {%- endif %}
+      {%- if cookiecutter.enable_https != 'y' %}
+      "callback": "http://localhost:5000/auth/google/callback",
+      "front_callback": "http://localhost:8080/#/auth/google/callback"
+      {%- endif %}
+    }{%- if cookiecutter.facebook_login == 'y' %},{%- endif %}
+    {%- endif %}
+    {%- if cookiecutter.facebook_login == 'y' %}
+    "facebook": {
+      "facebook_config": "./config/facebook.json",
+      {%- if cookiecutter.enable_https == 'y' %}
+      "callback": "https://localhost:5000/auth/facebook/callback",
+      "front_callback": "https://localhost:8080/#/auth/facebook/callback",
+      {%- endif %}
+      {%- if cookiecutter.enable_https != 'y' %}
+      "callback": "http://localhost:5000/auth/facebook/callback",
+      "front_callback": "http://localhost:8080/#/auth/facebook/callback",
+      {%- endif %}
+      "state_key": "some_key"
+    }
+    {%- endif %}
+  },
+  {%- endif %}
+  {%- if cookiecutter.email_login == 'y' %}
+  "email_auth": {
+    "hash_key": "some_key",
+    "activation_key": "some_key",
+    "activation_password": "some_password",
+    "reset_key": "some_key",
+    "reset_password": "some_password"
+  },
+  {%- endif %}
+  "email": {
+    "my_email@email.com": "my_email_password"
+  },
+  "log": "DEBUG",
+  "flask": {
+    "env": "development",
+    "debug": true,
+    "oauth_secret": "test_token",
+    "jwt_secret": "test_token",
+    "jwt_expiration": 2592000
+  }
+}

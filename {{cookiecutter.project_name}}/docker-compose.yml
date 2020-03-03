@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  database:
+    image: postgres:10
+    environment:
+      - POSTGRES_USER={{cookiecutter.project_name}}
+      - POSTGRES_PASSWORD={{cookiecutter.project_name}}
+    ports:
+      - 5432:5432
+
+  cache:
+    image: redis:4.0
+    ports:
+      - 6379:6379
+
+{%- if cookiecutter.storage == 'y' %}
+  storage:
+    image: minio/minio:latest
+    ports:
+      - 9000:9000
+    environment:
+      - MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE
+      - MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    command: server /data
+{%- endif %}
+
+{%- if cookiecutter.elasticsearch == 'y' %}
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.4.2
+    ports:
+      - 5601:5601
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.2
+    ports:
+      - 9200:9200
+{%- endif %}

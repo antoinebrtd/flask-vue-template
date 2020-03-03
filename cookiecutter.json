@@ -1,0 +1,12 @@
+{
+  "project_name": "myapp",
+  "enable_https": ["y", "n"],
+  "google_login": ["y", "n"],
+  "facebook_login": ["y", "n"],
+  "email_login": ["y", "n"],
+  "elasticsearch": ["y", "n"],
+  "storage": ["y", "n"],
+  "_copy_without_render": [
+    "*.html"
+  ]
+}

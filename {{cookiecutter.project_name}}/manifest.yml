@@ -1,0 +1,40 @@
+features:
+  - name: google_login
+    enabled: {{cookiecutter.google_login}}
+    resources:
+      - '../{{cookiecutter.project_name}}/back/{{cookiecutter.project_name}}/auth/google_login.py'
+      - '../{{cookiecutter.project_name}}/back/{{cookiecutter.project_name}}/models/social/gcredentials.py'
+      - '../{{cookiecutter.project_name}}/front/src/modules/auth/google.js'
+      - '../{{cookiecutter.project_name}}/front/src/components/auth/GoogleLogin.vue'
+      - '../{{cookiecutter.project_name}}/front/src/pages/auth/callback/GoogleCallback.vue'
+
+  - name: facebook_login
+    enabled: {{cookiecutter.facebook_login}}
+    resources:
+      - '../{{cookiecutter.project_name}}/back/{{cookiecutter.project_name}}/auth/facebook_login.py'
+      - '../{{cookiecutter.project_name}}/back/{{cookiecutter.project_name}}/models/social/fbcredentials.py'
+      - '../{{cookiecutter.project_name}}/front/src/modules/auth/facebook.js'
+      - '../{{cookiecutter.project_name}}/front/src/components/auth/FacebookLogin.vue'
+      - '../{{cookiecutter.project_name}}/front/src/pages/auth/callback/FacebookCallback.vue'
+
+  - name: email_login
+    enabled: {{cookiecutter.email_login}}
+    resources:
+      - '../{{cookiecutter.project_name}}/back/{{cookiecutter.project_name}}/auth/email_login.py'
+      - '../{{cookiecutter.project_name}}/back/templates/confirm_email.html'
+      - '../{{cookiecutter.project_name}}/back/templates/reset_password.html'
+      - '../{{cookiecutter.project_name}}/front/src/components/auth/EmailLogin.vue'
+      - '../{{cookiecutter.project_name}}/front/src/pages/auth/ForgotPassword.vue'
+      - '../{{cookiecutter.project_name}}/front/src/pages/auth/ResetPassword.vue'
+      - '../{{cookiecutter.project_name}}/front/src/modules/auth/email.js'
+
+  - name: elasticsearch
+    enabled: {{cookiecutter.elasticsearch}}
+    resources:
+      - '../{{cookiecutter.project_name}}/back/{{cookiecutter.project_name}}/core/elasticsearch.py'
+
+  - name: storage
+    enabled: {{cookiecutter.storage}}
+    resources:
+      - '../{{cookiecutter.project_name}}/back/{{cookiecutter.project_name}}/core/storage.py'
+      - '../{{cookiecutter.project_name}}/back/{{cookiecutter.project_name}}/storage/'
