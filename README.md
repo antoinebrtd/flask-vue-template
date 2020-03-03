@@ -17,6 +17,8 @@ you are a beginner or an experienced developer, launch your app and start develo
    * [Getting started](#getting-started) 
         *  [Requirements](#requirements)
         * [Installing the template](#installing-the-template)
+        * [Configuration](#configuration)
+             * [Setting up HTTPS](#setting-up-https)
         * [Setting up authentication](#setting-up-authentication)
              * [Email module](#email-module)
              * [Facebook module](#facebook-module)
@@ -148,6 +150,31 @@ You wil be prompted some questions about your options, and the template will be 
 
 That's it! Now let's configure your app.
 
+### Configuration
+#### Setting up HTTPS
+> **Note**: You can skip this part if you don't want your app running under Https locally. Just remove the `devServer`
+field in `front/vue.config.js`, and modify the localhost urls in `back/config/config.dev.json` and `front/.env.development`.
+Know that Facebook login might not work under Http.
+
+To run the app under Https in development mode, you will need to create your own certificates.
+
+Install [mkcert](https://github.com/FiloSottile/mkcert) for your OS. Initialize it with
+```
+$ mkcert -install
+```
+
+Then create a `certs` folder in the `front` folder. You can create your self-signed certificates for the frontend server by running
+```
+$ cd ~/<YOUR_REPO_NAME>/front/certs && mkcert localhost
+```
+This will create two files, `localhost.pem` and `localhost-key.pem`, in `front/certs`.
+
+Repeat the operation for the backend server: create a `certs` folder in the `back` folder, then run
+```
+$ cd ../../back/certs && mkcert localhost
+```
+
+Https is now configured!
 
 ### Setting up authentication
 > **Warning**: The files `config.json`, `facebook.json` and `google.json` you will create in this section contain your credentials. They are ignored in the repo tree and 
