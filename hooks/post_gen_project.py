@@ -18,7 +18,7 @@ def delete_resources_for_disabled_features():
     print('cleanup complete, removing manifest...')
     delete_resource(MANIFEST)
 
-    {%- if cookiecutter.facebook_login == 'y' and cookiecutter.google_login == 'y' %}
+    {%- if cookiecutter.facebook_login == 'n' and cookiecutter.google_login == 'n' %}
     delete_resource('../{{cookiecutter.project_name}}/front/src/pages/auth/callback/')
     {%- endif %}
     delete_resource('../.git/')
