@@ -195,7 +195,7 @@ and the name you want to appear in mailboxes.
 Log in your [Facebook developer account](https://developers.facebook.com/), and create an new app ID. Then, under products, add the Facebook login product.
 In settings, add `localhost` in app domains field. 
 
-In `back/config`, create a file named `google.json`, and copy paste the following,
+In `back/config`, create a file named `facebook.json`, and copy paste the following,
 replacing with your credentials: 
 ```
 {
