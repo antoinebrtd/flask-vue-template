@@ -9,7 +9,7 @@ Click==7.0
 docutils==0.14
 elasticsearch==7.0.2
 Flask==1.0.2
-Flask-Cors==3.0.7
+Flask-Cors==3.0.9
 Flask-JWT-Extended==3.18.2
 Flask-RESTful==0.3.7
 google-api-python-client==1.7.8
