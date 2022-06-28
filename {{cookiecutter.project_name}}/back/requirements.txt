@@ -1,5 +1,5 @@
 aniso8601==6.0.0
-arrow==0.13.1
+arrow==0.15.1
 boto3==1.9.150
 botocore==1.12.150
 cachetools==3.1.0
